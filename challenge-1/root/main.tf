@@ -1,13 +1,13 @@
 module "network" {
-	source = "../modules/network"
+  source = "../modules/network"
   sn_cidr= var.sn_cidr
-	availability_zone = var.availability_zone
-	sn_names = var.sn_names
+  availability_zone = var.availability_zone
+  sn_names = var.sn_names
 }
 
 module "sg" {
-	source = "../modules/security_group"
-	vpc_id = module.network.vpc_id
+  source = "../modules/security_group"
+  vpc_id = module.network.vpc_id
 }
 
 module "instance" {
